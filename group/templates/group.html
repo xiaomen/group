@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<p>
+<a href="/topic/add?group_id={{group.id}}">添加话题</a>
+</p>
+
+{% if topics|length == 0 %}
+<p>No topics in group {{ group.name }} now!</p>
+{% else %}
+<dl style="margin-left:20px;margin-top:10px;">
+	{% for topic in topics %}
+	<dt><a href="/topic/{{ group.id }}.{{ topic.id }}">{{ topic.title }}</a></dt>
+	<dd>创建时间：{{ topic.create_time }}</dd>
+	{% endfor %}
+
+</dl>
+{% endif %}
+
+<a href="/">返回小组首页</a>
+{% endblock %}
