@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<p>
+<a href="/reply/add?group_id={{group_id}}&topic_id={{topic.id}}">回复</a>
+</p>
+
+<dl>
+	<dt>{{ topic.title }}</dt>
+	<dd>{{ topic.content }}</dd>
+</dl>
+
+<br/><br/>
+
+<dl style="margin-left:20px;margin-top:10px;">
+	{% for reply in replies %}
+	<dt>{{ reply.content }}</dt>
+	<dd>创建时间：{{ reply.create_time }}</dd>
+	{% endfor %}
+
+</dl>
+
+<a href="/">返回</a>
+{% endblock %}

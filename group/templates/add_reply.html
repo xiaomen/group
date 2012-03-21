@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<form action="/reply/add" method="post">
+	<input type="hidden" name="group_id" value="{{ group_id }}" />
+	<input type="hidden" name="topic_id" value="{{ topic_id }}" />
+	<ul style="margin-left:20px;margin-top:10px;">
+
+		<li style="margin-top:10px;">
+		<textarea value="" rows="5" cols="30" name="content"></textarea>
+		</li>
+		<li>
+		<button type="submit">回复</button>	
+		</li>
+	</ul>
+</form>
+
+{% endblock %}

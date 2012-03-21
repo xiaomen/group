@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<h3> 创建话题 </h3>
+<form action="/topic/add" method="post">
+	<input type="hidden" name="group_id" value="{{ group_id }}" />
+	<ul style="margin-left:20px;margin-top:10px;">
+		<li>
+		<label>标题：</label><br/>
+		<input type="text" size="30" value="" name="title" />
+		</li>
+
+		<li style="margin-top:10px;">
+		<label>内容：</label><br/>
+		<textarea value="" rows="5" cols="30" name="content"></textarea>
+		</li>
+		<li>
+		<button type="submit">创建</button>	
+		</li>
+	</ul>
+</form>
+
+{% endblock %}

@@ -35,13 +35,18 @@ class Group(db.Model):
         return Group.query.all()
 
     @staticmethod
+    def get_group_by_id(group_id):
+        return Group.query.filter_by(id=group_id).first()
+
+    @staticmethod
     def insert_group(user_id, name, description):
         group = Group(user_id, name, description)
         db.session.add(group)
         db.session.commit()
 
 class Topic(object):
-
+    
+    __tablename__ = 'topic'
     
     def __init__(self, group_id, user_id, title, content):
         self.group_id = group_id
@@ -80,6 +85,7 @@ for i in range(REPLY_TABLE_NUMBER):
     name = "reply_%d" % i
     table = db.Table(name, db.metadata,
         db.Column('id', db.Integer, primary_key=True, autoincrement=True),
+        db.Column('topic_id', db.Integer, nullable=False, index=True),
         db.Column('user_id', db.Integer, nullable=False, index=True),
         db.Column('content', db.Text),
         db.Column('create_time', db.DateTime, default=datetime.utcnow)

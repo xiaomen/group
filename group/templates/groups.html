@@ -14,7 +14,7 @@
 {% else %}
 <ul style="margin-left:20px;margin-top:10px;">
 	{% for group in groups %}
-	<li>{{ group.name }}</li>
+	<li><a href="/group/{{ group.id }}">{{ group.name }}</a></li>
 	{% endfor %}
 </ul>
 {% endif %}
