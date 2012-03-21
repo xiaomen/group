@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<h3> 创建小组 </h3>
+<form action="/group/add" method="post">
+	<ul style="margin-left:20px;margin-top:10px;">
+		<li>
+		<label>小组名：</label><br/>
+		<input type="text" size="30" value="" name="name" />
+		</li>
+
+		<li style="margin-top:10px;">
+		<label>描述：</label><br/>
+		<textarea value="" rows="5" cols="30" name="description"></textarea>
+		</li>
+		<li>
+		<button type="submit">创建</button>	
+		</li>
+	</ul>
+</form>
+
+{% endblock %}

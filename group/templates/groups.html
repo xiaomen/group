@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+校门口 - 小组(For test)
+{% endblock %}
+
+{% block content %}
+<p>
+<a href="/group/add">添加小组</a>
+</p>
+
+{% if groups|length == 0 %}
+<p>No groups now!</p>
+{% else %}
+<ul style="margin-left:20px;margin-top:10px;">
+	{% for group in groups %}
+	<li>{{ group.name }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
